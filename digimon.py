@@ -38,6 +38,10 @@ mydb = mysql.connector.connect(
     database = 'digimon'
 )
 
+# delete data dri digimon table di SQL and reset the ID to '0'
+deleteDigi = mydb.cursor().execute('delete from digimon')
+newDigi = mydb.cursor().execute('alter table digimon auto_increment = 1')
+
 cursor = mydb.cursor()
 
 for i in range(len(dataDigimon)-2):
